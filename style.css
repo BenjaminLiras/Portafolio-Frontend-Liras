@@ -1,0 +1,83 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'DM Sans', sans-serif;
+background-color: #0a0a0b;
+}
+
+h1, h2, h3 {
+font-family: 'Syne', sans-serif;
+}
+
+header {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+border-bottom: 1px solid rgba(255,255,255,0.07);
+background: rgba(10,10,11,0.85);
+backdrop-filter: blur(20px);
+}
+
+.headera {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding: 1.25rem 3rem;
+}
+
+.titulo {
+font-family: 'Syne', sans-serif;
+font-weight: 800;
+font-size: 1.1rem;
+letter-spacing: -0.02em;
+color: white;
+text-decoration: none;
+}
+
+
+.conocimientos {
+display: flex;
+align-items: center;
+}
+
+.listaHeader {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+
+.listaHeader li a {
+font-family: 'DM Mono', monospace;
+font-size: 0.75rem;
+color: rgba(255,255,255,0.45);
+text-decoration: none;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+
+.listaHeader li a:hover {
+color: #c8f542;
+}
+
+.header-cta {
+font-family: 'DM Mono', monospace;
+font-size: 0.75rem;
+padding: 0.5rem 1.25rem;
+border: 1px solid rgba(255,255,255,0.15);
+border-radius: 100px;
+color: white;
+text-decoration: none;
+letter-spacing: 0.06em;
+transition: all 0.2s;
+}
+
+.header-cta:hover {
+border-color: #c8f542;
+color: #c8f542;
+}
