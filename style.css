@@ -281,3 +281,66 @@ main .inicio .descripcion{
     margin-top: 10px;
     margin-left: 10%;
 }
+
+.herramientas-habilidades{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.herramientas-habilidades .detalle a{
+    font-family: 'DM Mono', monospace;
+    font-size: 0.90rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.herramientas-habilidades .titulo{
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: white;
+    font-size: 1.5em;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+.grid-herramientas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgba(70, 70, 70, 0.568);
+    border-radius: 15px;  
+    overflow: hidden;
+    
+}
+
+.grid-herramientas .card-herramientas{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border: 1px solid rgba(70, 70, 70, 0.568);
+}
+.grid-herramientas .card-herramientas .subtitulo a{
+    font-family: 'DM Mono', monospace;
+    font-size: 0.90rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    
+}
+.grid-herramientas .card-herramientas .contenedor-herramientas{
+    display: flex;
+    gap: 7px;
+}
+
+.item2 {
+    background: #3541128c;
+    border: 1px solid #c8f5425e;
+    padding: 2%;
+    border-radius: 12px;
+    color: #c8f542;
+}
