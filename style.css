@@ -94,9 +94,9 @@ main .inicio{
     justify-content: space-between;
     gap: 10px;
     border-bottom: 1px solid gray;
-    background-image: url(images/Curve\ Line.svg);
-    background-size: cover;
-    padding: 150px 100px;
+    background-image: url(images/portfolio_background_preview.svg);
+    background-repeat: no-repeat;
+    padding: 100px 100px;
 }
 
 main .inicio .subtitulo{
@@ -194,7 +194,10 @@ main .inicio .descripcion{
 }
 
 .about-me .contenedor-about{
-
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
 }
 
 .about-me .contenedor-about .info{
@@ -215,4 +218,66 @@ main .inicio .descripcion{
     color: rgb(116, 116, 116);
     font-size: 1rem;
     padding-bottom: 3%;
+}
+
+.grid-about{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    border-radius: 12px;  
+    overflow: hidden;
+}
+
+.item {
+    background: rgba(31, 31, 31, 0.534);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;    
+    align-items: flex-start;
+    padding: 5%;
+    position: relative;
+    height: 120px;
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: #c8f542;
+    transition: width 0.4s ease;
+}
+/* Alternativa para un hover en mobile */
+.item:active::after { 
+    width: 100%;
+}
+
+.item:hover {
+    background: rgba(31, 31, 31, 0.315);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;    
+    align-items: flex-start;
+    padding: 5%;
+}
+
+.item:hover::after {
+    width: 100%;
+}
+.item h1{
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 35px;
+    color: #c8f542;
+    margin-left: 10%;
+}
+.item p{
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255, 252, 252, 0.493);
+    margin-top: 10px;
+    margin-left: 10%;
 }
