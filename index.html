@@ -8,6 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- uso id para despues llamarlo mas facil en el script -->
+    <div id="loader">
+    <div class="loader-name">Liras Benjamin</div>
+    <div class="loader-bottom">
+        <div class="loader-label">Cargando portfolio</div>
+        <div class="loader-percent" id="loaderPercent">0</div>
+    </div>
+    <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBarFill"></div>
+    </div>
+    </div>
     <header>
         <div class="headera">
             <a href="#" class="titulo">Liras Benjamin</a>
@@ -158,5 +169,202 @@
                 </div>
             </div>
         </div>
+        <div class="contacto">
+            <div class="detalle">
+                <a href="">004 - Contacto</a>
+            </div>
+            <div class="contenedor-cta">
+                <div class="titulos">
+                    <h1 class="grande">¿Trabajamos</h1>
+                    <h2 class="medio">juntos?</h2>
+                </div>
+                <div class="descripcion">
+                    <p>Estoy disponible para proyectos o trabajos donde pueda resultar de utilidad. Actualmente estudiante en el secundario Politecnico Modelo y proximamente estudiando Ing. en Sistemas en la UTN</p>
+                </div>
+                <div class="contacto-botones">
+                    <a href="" class="header-cta">Linkedin</a>
+                    <a href="" class="header-cta">Github</a>
+                    <a href="" class="header-cta">benjaliras@gmail.com</a>
+                    <a href="" class="header-cta">Teléfono</a>
+                </div>
+            </div>
+        </div>
     </main>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // ─── 0. LOADER ────────────────────────────────────────────────────────────
+        const loader = document.getElementById("loader");
+        const loaderPercent = document.getElementById("loaderPercent");
+        const loaderBarFill = document.getElementById("loaderBarFill");
+        
+        let current = 0;
+        const duration = 1800; // ms totales del loader
+        const interval = 30;   // cada cuánto ms actualiza
+        const steps = duration / interval;
+        const increment = 100 / steps;
+        
+        // Velocidad no lineal: arranca rápido, frena al final
+        function easeProgress(t) {
+            return t < 0.7 ? t / 0.7 * 85 : 85 + ((t - 0.7) / 0.3) * 15;
+        }
+        
+        let step = 0;
+        const loaderInterval = setInterval(() => {
+            step++;
+            const t = Math.min(step / steps, 1);
+            current = Math.floor(easeProgress(t));
+            loaderPercent.textContent = current;
+            loaderBarFill.style.width = current + "%";
+        
+            if (t >= 1) {
+            clearInterval(loaderInterval);
+            loaderPercent.textContent = "100";
+            loaderBarFill.style.width = "100%";
+        
+            // Pequeña pausa en 100 antes de salir
+            setTimeout(() => {
+                loader.classList.add("exit");
+                // Dispara las animaciones de entrada cuando termina la cortina
+                setTimeout(triggerPageLoad, 600);
+            }, 300);
+            }
+        }, interval);
+        
+        function triggerPageLoad() {
+        
+        // ─── 0. PAGE LOAD ANIMATION ───────────────────────────────────────────────
+        const loadSequence = [
+            { el: document.querySelector("header"),               delay: 0   },
+            { el: document.querySelector(".inicio .subtitulo"),   delay: 150 },
+            { el: document.querySelector(".grande"),              delay: 280 },
+            { el: document.querySelector(".medio"),               delay: 400 },
+            { el: document.querySelectorAll(".grande")[1],        delay: 500 },
+            { el: document.querySelector(".inicio .descripcion"), delay: 620 },
+            { el: document.querySelector(".botones"),             delay: 720 },
+        ];
+        
+        loadSequence.forEach(({ el, delay }) => {
+            if (!el) return;
+            el.classList.add("load-hidden");
+            setTimeout(() => {
+            el.classList.remove("load-hidden");
+            el.classList.add("load-animate");
+            }, delay);
+        });
+        
+        } // end triggerPageLoad
+        
+        
+        // ─── 1. SCROLL PROGRESS BAR ───────────────────────────────────────────────
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+            background: #c8f542; z-index: 9999;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 8px #c8f54280;
+        `;
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (scrolled / total * 100) + '%';
+        });
+        
+        
+        // ─── 2. FADE + SLIDE-UP AL ENTRAR AL VIEWPORT ─────────────────────────────
+        // Elementos que queremos animar al hacer scroll
+        const animTargets = [
+            '.about-me .detalle',
+            '.about-me .contenedor-about .info',
+            '.grid-about .item',
+            '.herramientas-habilidades .detalle',
+            '.herramientas-habilidades .titulo',
+            '.grid-herramientas .card-herramientas',
+            '.proyectos .detalle',
+            '.proyectos .titulo',
+            '.proyectos .card-proyecto',
+        ];
+        
+        // Estado inicial: invisible y desplazado hacia abajo
+        const style = document.createElement('style');
+        style.textContent = `
+            .anim-hidden {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+            }
+            .anim-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        const allElements = [];
+        animTargets.forEach(selector => {
+            document.querySelectorAll(selector).forEach((el, i) => {
+            el.classList.add('anim-hidden');
+            // Delay escalonado por grupo
+            el.style.transitionDelay = `${i * 0.08}s`;
+            allElements.push(el);
+            });
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('anim-visible');
+                observer.unobserve(entry.target); // solo anima una vez
+            }
+            });
+        }, { threshold: 0.12 });
+        
+        allElements.forEach(el => observer.observe(el));
+        
+        
+        // ─── 3. CONTADORES ANIMADOS ────────────────────────────────────────────────
+        // Busca los h1 dentro de .item y anima el número
+        const counters = document.querySelectorAll('.item h1');
+        
+        function animateCounter(el) {
+            const raw = el.textContent.trim();          // e.g. "3+" o "1"
+            const suffix = raw.replace(/[0-9]/g, '');   // "+", "" 
+            const target = parseInt(raw);
+            if (isNaN(target)) return;
+        
+            let start = null;
+            const duration = 1200;
+        
+            function step(timestamp) {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            // easeOutExpo
+            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(el => counterObserver.observe(el));
+    </script>
 </body>
