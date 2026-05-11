@@ -98,7 +98,7 @@ header.load-animate {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Styles de la pagina en si ── */
+/*      STYLES DE LA PAGINA EN SI      */
 
 body {
     font-family: 'DM Sans', sans-serif;
@@ -108,6 +108,8 @@ body {
 h1, h2, h3 {
     font-family: 'Syne', sans-serif;
 }
+
+/*           HEADER           */
 
 header {
     position: fixed;
@@ -134,7 +136,6 @@ header {
     color: white;
     text-decoration: none;
 }
-
 
 .conocimientos {
     display: flex;
@@ -184,6 +185,8 @@ main{
     width: 100%;
 }
 
+/*           INICIO           */
+
 main .inicio{
     display: flex;
     flex-direction: column;
@@ -224,8 +227,7 @@ main .inicio .titulos .medio{
 main .inicio .descripcion{
     padding-top: 1%;
     color: rgb(116, 116, 116);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 1rem;
     letter-spacing: 0.08em;
     width: 35%;
 }
@@ -275,11 +277,15 @@ main .inicio .descripcion{
     color: #e8e6e1;;
 }
 
+/*           ABOUT ME           */
+
 .about-me{
     display: flex;
     flex-direction: column;
     padding-top: 5%;
     padding-left: 5%;
+    padding-bottom: 5%;
+    border-bottom: gray solid 1px;
 }
 
 .about-me .detalle a{
@@ -379,6 +385,8 @@ main .inicio .descripcion{
     margin-top: 10px;
     margin-left: 10%;
 }
+
+/*           HERRAMIENTAS y HABILIDADES           */
 
 .herramientas-habilidades{
     display: flex;
@@ -485,6 +493,8 @@ main .inicio .descripcion{
     color: #ff8e8e;
 }
 
+/*           PROYECTOS            */
+
 .proyectos{
     display: flex;
     flex-direction: column;
@@ -564,6 +574,8 @@ main .inicio .descripcion{
     flex-shrink: 0; /*Evita que el botón se achique porque le pinta*/
 }
 
+/*           CONTACTO            */
+
 .contacto{
     display: flex;
     flex-direction: column;
@@ -642,10 +654,12 @@ main .inicio .descripcion{
     color: #c8f542;
 }
 
+/*           FOOTER           */
+
 footer{
     display: flex;
     justify-content: flex-start;
-    padding: 3%;
+    padding: 2%;
     border-top: 1px solid gray;
 }
 footer .contenedor-footer{
@@ -673,3 +687,249 @@ footer .detalle-footer{
     font-size: 0.9rem;
 }
 
+footer .detalle-verde-footer{
+    padding-left: 10px;
+    color: #c8f542;
+    font-size: 0.9rem;
+}
+
+
+
+/*    RESPONSIVE — TABLET   768px    */
+@media (max-width: 768px) {
+
+    /*           HEADER           */
+    .headera {
+        padding: 1rem 1.5rem;
+    }
+    .listaHeader {
+        gap: 1.2rem;
+    }
+
+    /*           INICIO           */
+    main .inicio {
+        padding: 140px 40px 80px;
+    }
+    main .inicio .titulos .grande {
+        font-size: 5em;
+    }
+    main .inicio .titulos .medio {
+        font-size: 3em;
+    }
+    main .inicio .descripcion {
+        width: 70%;
+    }
+
+    /*           ABOUT ME           */
+    .about-me .contenedor-about {
+        flex-direction: column;
+        gap: 2rem;
+        margin-right: 5%;
+    }
+    .about-me .contenedor-about .info {
+        max-width: 100%;
+    }
+    .grid-about {
+        width: 100%;
+    }
+
+    /*           HERRAMIENTAS y HABILIDADES           */
+    .grid-herramientas {
+        grid-template-columns: 1fr;
+    }
+
+    /*           PROYECTOS            */
+    .proyectos .porque {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .proyectos .porque .numero {
+        font-size: 2.5em;
+        max-width: none;
+    }
+    .proyectos .porque .porque-columna {
+        max-width: 100%;
+    }
+    .porque .btn-primary {
+        margin-left: 0;
+        width: auto;
+    }
+
+    /*           CONTACTO            */
+    .contacto .titulos {
+        font-size: 2.2em;
+        text-align: center;
+    }
+    .contacto .descripcion {
+        max-width: 70%;
+    }
+    .contacto .contacto-botones {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /*           FOOTER           */
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 3%;
+    }
+    footer .contenedor-footer {
+        justify-content: center;
+    }
+    footer .contenedor-footer2 {
+        justify-content: center;
+    }
+}
+
+
+   /*       RESPONSIVE — MOBILE  480PX */
+@media (max-width: 480px) {
+
+    /*           HEADER           */
+    .conocimientos {
+        display: none;
+    }
+    .headera {
+        padding: 1rem 1.25rem;
+    }
+
+    /*           INICIO           */
+    main .inicio {
+        padding: 110px 24px 60px;
+        background-size: cover;
+        background-position: center;
+    }
+    main .inicio .subtitulo {
+        font-size: 0.72rem;
+    }
+    main .inicio .titulos .grande {
+        font-size: 3.2em;
+    }
+    main .inicio .titulos .medio {
+        font-size: 2em;
+    }
+    main .inicio .descripcion {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+    .botones {
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 1.5rem;
+    }
+    .btn-primary {
+        text-align: center;
+        width: 100%;
+    }
+    .btn-ghost {
+        text-align: center;
+        width: 100%;
+    }
+
+    /*           ABOUT ME           */
+    .about-me {
+        padding: 10% 5%;
+    }
+    .about-me .contenedor-about .info .titulo-info {
+        font-size: 1.3em;
+    }
+    .grid-about {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+        height: 100px;
+    }
+    .item h1 {
+        font-size: 26px;
+    }
+
+    /*           HERRAMIENTAS y HABILIDADES           */
+    .herramientas-habilidades {
+        padding: 10% 5%;
+    }
+    .grid-herramientas {
+        grid-template-columns: 1fr;
+        border-radius: 10px;
+    }
+    .grid-herramientas .card-herramientas {
+        padding: 6% 5%;
+    }
+    .item2 {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+    }
+    .item2-backend {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+    }
+    .item2-habilidades {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+    }
+
+    /*           PROYECTOS            */
+    .proyectos {
+        padding: 10% 5%;
+    }
+    .proyectos .card-proyecto {
+        padding: 20px 16px;
+    }
+    .proyectos .porque {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .proyectos .porque .numero {
+        font-size: 2em;
+        padding: 6px 12px;
+    }
+    .proyectos .porque .porque-columna h1 {
+        font-size: 1.15em;
+    }
+    .proyectos .porque .porque-columna .descripcion-porque p {
+        font-size: 0.88rem;
+    }
+    .porque .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /*           CONTACTO            */
+    .contacto {
+        padding: 10% 5%;
+    }
+    .contacto .titulos {
+        font-size: 1.6em;
+        padding-top: 8%;
+    }
+    .contacto .titulos .medio {
+        font-size: 1.5em;
+    }
+    .contacto .descripcion {
+        max-width: 100%;
+    }
+    .contacto .contacto-botones {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .contacto .contacto-botones a {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        padding: 4% 5%;
+        gap: 10px;
+    }
+    footer .nombre-footer {
+        font-size: 0.78rem;
+    }
+    footer .detalle-footer {
+        font-size: 0.78rem;
+    }
+    footer .detalle-verde-footer {
+        font-size: 0.78rem;
+    }
+}
