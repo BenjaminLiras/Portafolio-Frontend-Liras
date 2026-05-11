@@ -383,9 +383,7 @@ main .inicio .descripcion{
 .herramientas-habilidades{
     display: flex;
     flex-direction: column;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 5%;
+    padding: 5%;
     border-bottom: gray solid 1px;
 }
 
@@ -643,3 +641,35 @@ main .inicio .descripcion{
     border-color: #c8f542;
     color: #c8f542;
 }
+
+footer{
+    display: flex;
+    justify-content: flex-start;
+    padding: 3%;
+    border-top: 1px solid gray;
+}
+footer .contenedor-footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+footer .contenedor-footer2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+footer .nombre-footer{
+    margin-left: 15px;
+    color: rgb(110, 110, 110);
+    font-size: 0.9rem;
+}   
+
+footer .detalle-footer{
+    color: rgb(110, 110, 110);
+    font-size: 0.9rem;
+}
+
